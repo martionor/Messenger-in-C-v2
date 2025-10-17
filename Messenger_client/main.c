@@ -4,5 +4,5 @@
 
 int main(){
     open_menu();
-    return 1;
+    return 0;
 }

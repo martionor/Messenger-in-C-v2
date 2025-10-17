@@ -1,6 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include <arpa/inet.h>
 #include "message.h"
 
 #define SERVER_IP "127.0.0.1"

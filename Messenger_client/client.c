@@ -64,7 +64,7 @@ void request_messages(const char *password){
 
     //Receive messages from server one by one
     int read_bytes;
-    while((read_bytes = read(sock, buffer, sizerof(buffer)-1))>0){
+    while((read_bytes = read(sock, buffer, sizeof(buffer)-1))>0){
         buffer[read_bytes]='\0';
         printf("%s\n", buffer);
     }
