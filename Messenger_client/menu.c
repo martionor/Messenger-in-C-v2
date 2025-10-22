@@ -29,11 +29,14 @@ void open_menu(){
             get_password(password, sizeof(password));
             request_messages(password);
             break;
+        case '3':
+            printf("Change server ip adress");
+            break;
         case '0':
             printf("Goodbye\n");
             return;
         default:
-            printf("Invalid option. Choose 1,2,0. \n");
+            printf("Invalid option. Choose 1,2,3,0. \n");
             break;
         }
     }

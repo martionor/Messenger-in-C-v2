@@ -95,7 +95,7 @@ void start_server(){
         }
 
         pthread_t tid;
-        pthread_creseate(&tid, NULL, handle_client, new_socket);
+        pthread_create(&tid, NULL, handle_client, new_socket);
         pthread_detach(tid); //Thread clean up after itself
     }
     close(server_fd);

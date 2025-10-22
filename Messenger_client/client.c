@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <windows.h>
 #include <arpa/inet.h>
 #include "client.h"
 #include "../Messenger_server/server.h"
