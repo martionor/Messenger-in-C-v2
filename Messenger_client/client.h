@@ -6,7 +6,6 @@
 
 #define SERVER_PORT 8080
 
-// char server_address= SERVER_IP;
 
 void send_message_to_ip(struct write_message *msg);
 void request_messages(const char *password);

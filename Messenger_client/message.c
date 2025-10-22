@@ -2,7 +2,7 @@
 #include <string.h>
 #include "message.h"
 
-void create_message (struct write_message *msg){
+void create_message (write_message_t  *msg){
     printf("Enter your name: ");
     fgets(msg->name, sizeof(msg->name), stdin);
 
@@ -11,10 +11,11 @@ void create_message (struct write_message *msg){
 
     printf ("Message subject: ");
     fgets(msg->subject, sizeof(msg->subject), stdin);
-
+    // Remove newline character from the subject
     msg->subject[strcspn(msg->subject, "\n")] = 0;
 }
 
-void display_message(struct write_message *msg){
+// Display the message content
+void display_message(write_message_t  *msg){
     printf("\nMessage from %s to %s \nSubject: %s\n", msg->name, msg->to_who, msg->subject);
 }
