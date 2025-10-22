@@ -14,6 +14,7 @@ void open_menu(){
         printf("\n Menu \n");
         printf("1 - Send message \n");
         printf("2 - Read messages \n");
+        printf("3 - Change server IP \n");
         printf("0 - Exit\n");
 
         fgets(menu_choice, sizeof(menu_choice), stdin);
@@ -30,7 +31,7 @@ void open_menu(){
             request_messages(password);
             break;
         case '3':
-            printf("Change server ip adress");
+            change_new_ip();
             break;
         case '0':
             printf("Goodbye\n");

@@ -6,6 +6,7 @@
 #include "client.h"
 #include "../Messenger_server/server.h"
 
+static char server_ip[64] = "127.0.0.1";
 
 void send_message_to_ip(struct write_message *msg){
     int sock = 0;
@@ -78,5 +79,24 @@ void request_messages(const char *password){
 void setup_server_address(struct sockaddr_in *serv_addr){
     serv_addr ->sin_family = AF_INET;
     serv_addr ->sin_port = htons(SERVER_PORT);
-    inet_pton(AF_INET, SERVER_IP, &serv_addr->sin_addr);
+    inet_pton(AF_INET, get_server_ip(), &serv_addr->sin_addr);
+}
+
+const char* get_server_ip(void){
+    return server_ip;
+}
+
+void change_new_ip(void){
+    char new_ip[64];
+    printf("Enter new server IP: ");
+    fgets(new_ip,sizeof(new_ip),  stdin);
+    new_ip[strcspn(new_ip, "\r\n")] = 0;
+
+    if(strlen(new_ip)==0){
+        printf("IP adress not changed.\n");
+        return;
+    }
+
+    strncpy(server_ip, new_ip, sizeof(server_ip));
+    printf("Server IP changed to: %s\n", server_ip);
 }
