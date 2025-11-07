@@ -30,7 +30,6 @@ void open_menu(){
             break;
         case '2':
             printf("Enter password to get messages");
-            get_password(password, sizeof(password));
             request_messages(password);
             break;
         case '3':

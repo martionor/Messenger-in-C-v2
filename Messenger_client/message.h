@@ -9,7 +9,6 @@ typedef struct write_message {
 
 void create_message(write_message_t *msg);
 void display_message(write_message_t *msg);
-void flush_stdin(void);
-
+void safe_fgets(char *dst, size_t size);
 
 #endif
