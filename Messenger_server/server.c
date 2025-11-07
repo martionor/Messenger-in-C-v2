@@ -56,22 +56,15 @@ void *handle_client(void *arg){
 
     read(new_socket, buffer, sizeof(buffer));
 
-    if (strncmp(buffer, "READ_MESSAGES:", 14)==0){
-        char *received_pass = buffer +14;
-        if(!check_password(received_pass)){
-            char *msg = "Acces denied: password incorrect.\n";
-            send(new_socket, msg, strlen(msg),0);
-        }else{
-            send_stored_messages(new_socket);
-            }
-        }
-        else {
-            pthread_mutex_lock(&messages_mutex);
-            store_message(buffer);
-            pthread_mutex_unlock(&messages_mutex);
-        }
-        close(new_socket);
-        return NULL;
+    if (strncmp(buffer, "READ_MESSAGES", 13)==0){
+        send_stored_messages(new_socket);}
+    else {
+        pthread_mutex_lock(&messages_mutex);
+        store_message(buffer);
+        pthread_mutex_unlock(&messages_mutex);
+    }
+    close(new_socket);
+    return NULL;
 }
 
 //Start server and accept multiple connections
@@ -129,12 +122,12 @@ void send_stored_messages(int new_socket){
 
 
 //Check password
-int check_password(const char *received_pass){
-    const char *password = "password";
-    char clean_pass[64];
+// int check_password(const char *received_pass){
+//     const char *password = "password";
+//     char clean_pass[64];
 
-    strncpy(clean_pass, received_pass, sizeof(clean_pass));
-    clean_pass[strcspn(clean_pass, "\r\n")]=0;
+//     strncpy(clean_pass, received_pass, sizeof(clean_pass));
+//     clean_pass[strcspn(clean_pass, "\r\n")]=0;
 
-    return strcmp(clean_pass, password) ==0;
-}
+//     return strcmp(clean_pass, password) ==0;
+// }
