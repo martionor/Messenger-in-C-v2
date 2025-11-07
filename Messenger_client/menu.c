@@ -29,7 +29,6 @@ void open_menu(){
             send_message_to_ip(&msg);
             break;
         case '2':
-            printf("Enter password to get messages");
             request_messages(password);
             break;
         case '3':
