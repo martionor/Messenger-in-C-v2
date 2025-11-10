@@ -2,9 +2,11 @@
 Messaging client/server in C language
 to build client in client folder you can run : gcc *.c -o messenger 
 to build server in server folder run: gcc *.c -o server
+Using TCP protocol
 
 For building purposes also added build.bat
 
+Python client refreshes and reads all messages after timeout.
 Server.c side:
 <img width="1182" height="602" alt="image" src="https://github.com/user-attachments/assets/c2a0b854-7d84-4654-a827-6b81b3772fa1" />
 
